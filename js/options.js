@@ -1,7 +1,7 @@
 
 'use strict';
 
-var extOptions = {};
+let extOptions = {};
 
 // Function to display a temporary dialog message
 const displayDialog = () => {
@@ -20,8 +20,8 @@ const loadFormOptions = () => {
   document.getElementById('styleSelectedSimple').checked = extOptions.styleSelectedSimple;
   document.getElementById('styleSelectedFancy').checked = extOptions.styleSelectedFancy;
   document.getElementById('activateSearch').checked = extOptions.activateSearch;
-  document.getElementById('autoselectFirst').checked = extOptions.autoselectFirst;
-  document.getElementById('selectTextInSearchbox').checked = extOptions.selectTextInSearchbox;
+  document.getElementById('autoSelectFirst').checked = extOptions.autoselectFirst;
+  document.getElementById('selectTextInSearchBox').checked = extOptions.selectTextInSearchbox;
   document.getElementById('addSpaceOnFocus').checked = extOptions.addSpaceOnFocus;
   document.getElementById('enableGoogleShortcuts').checked = extOptions.enableGoogleShortcuts;
 };
@@ -33,8 +33,8 @@ const saveOptions = () => {
   extOptions.styleSelectedSimple = document.getElementById('styleSelectedSimple').checked;
   extOptions.styleSelectedFancy = document.getElementById('styleSelectedFancy').checked;
   extOptions.activateSearch = document.getElementById('activateSearch').checked;
-  extOptions.autoselectFirst = document.getElementById('autoselectFirst').checked;
-  extOptions.selectTextInSearchbox = document.getElementById('selectTextInSearchbox').checked;
+  extOptions.autoselectFirst = document.getElementById('autoSelectFirst').checked;
+  extOptions.selectTextInSearchbox = document.getElementById('selectTextInSearchBox').checked;
   extOptions.addSpaceOnFocus = document.getElementById('addSpaceOnFocus').checked;
   extOptions.enableGoogleShortcuts = document.getElementById('enableGoogleShortcuts').checked;
   persistOptions();

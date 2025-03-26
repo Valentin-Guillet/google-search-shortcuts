@@ -24,7 +24,7 @@ const shortcuts = {
     // Next = j; Previous = k [WARNING: Conflicts with activateSearch. This takes precedence.]
     navigateWithJK: true,
 
-    // Esc = select all text in searchbox
+    // Esc = select all text in search box
     selectTextInSearchbox: true,
 
     // Add space on focus
@@ -44,7 +44,7 @@ const shortcuts = {
   // unique selector, so this selector is a brittle heuristic that may break any
   // time Google changes the DOM structure / selectors, requiring a patch update
   // of the addon to be pushed.
-  // Perspectively it may be beneficial to make this selector (or all of them)
+  // It may be beneficial to make this selector (or all of them)
   // user-configurable, to enable users to temporarily fix it themselves, until
   // a new patch update is out. We may also want to investigate a different
   // approach, that e.g. does not only rely on a query selector, but includes
@@ -67,7 +67,18 @@ const shortcuts = {
     // hidden ancestor element.
     ':not([aria-hidden="true"] a)',
 
-  resultContainerQuerySelector: 'div.gs_r, div.g, li, td',
+  resultContainerQuerySelector: [
+    'div[jscontroller][data-ved]', // Standard web result
+    'div[lang][data-hveid][data-ved]', // Web result with site links
+
+    // Pagination
+    'td',
+
+    // Obsolete / Possible fallbacks? Search results
+    'div.gs_r',
+    'div.g',
+    'li'
+  ].join(', '),
   navigationContainerQuerySelector: 'div[role="navigation"] table',
   navigationLinksAndSuggestedSearchesQuerySelector: 'div[role="navigation"] table a, #botstuff a',
 
